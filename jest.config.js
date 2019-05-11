@@ -1,4 +1,5 @@
 module.exports = {
+  preset: 'jest-preset-angular',
   testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
   transform: {
     '^.+\\.(ts|js|html)$': 'ts-jest'

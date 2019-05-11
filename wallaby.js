@@ -1,6 +1,7 @@
 module.exports = function(wallaby) {
   return {
     files: [
+      'jest.config.js',
       'apps/**/*.+(ts|html|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
       '!apps/**/*.spec.ts'
     ],
@@ -47,7 +48,7 @@ module.exports = function(wallaby) {
     },
 
     setup: function(wallaby) {
-      let jestConfig = require('./package.json').jest;
+      let jestConfig = require('./jest.config');
       delete jestConfig.preset;
       jestConfig = Object.assign(
         require('jest-preset-angular/jest-preset'),
@@ -57,6 +58,7 @@ module.exports = function(wallaby) {
       wallaby.testFramework.configure(jestConfig);
     },
 
-    testFramework: 'jest'
+    testFramework: 'jest',
+    debug: true
   };
 };
