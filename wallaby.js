@@ -50,7 +50,6 @@ module.exports = function(wallaby) {
       wallaby.testFramework.configure(jestConfig);
     },
 
-    testFramework: 'jest',
-    debug: true
+    testFramework: 'jest'
   };
 };
