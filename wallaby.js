@@ -1,3 +1,5 @@
+const ngxWallabyJest = require('ngx-wallaby-jest');
+
 module.exports = function(wallaby) {
   return {
     files: [
@@ -6,7 +8,7 @@ module.exports = function(wallaby) {
       '!apps/**/*.spec.ts'
     ],
 
-    tests: ['apps/**/*.spec.ts'],
+    tests: ['apps/**/*.spec.ts', { pattern: 'apps/**-e2e/**', ignore: true }],
 
     env: {
       type: 'node',
@@ -36,25 +38,15 @@ module.exports = function(wallaby) {
     },
 
     preprocessors: {
-      'apps/**/*.js': [
-        file =>
-          require('@babel/core').transform(file.content, {
-            sourceMap: true,
-            compact: false,
-            filename: file.path,
-            presets: [require('babel-preset-jest')]
-          })
-      ]
+      // This translate templateUrl and styleUrls to the right implementation
+      // For wallaby
+      'apps/**/*.component.ts': ngxWallabyJest
     },
 
     setup: function(wallaby) {
-      let jestConfig = require('./jest.config');
-      delete jestConfig.preset;
-      jestConfig = Object.assign(
-        require('jest-preset-angular/jest-preset'),
-        jestConfig
-      );
-      jestConfig.transformIgnorePatterns.push('instrumented.*.(jsx?|html)$');
+      let jestConfig = require('./jest.config.js');
+      jestConfig.setupTestFrameworkScriptFile =
+        '<rootDir>/apps/sample-app/src/test-setup.ts';
       wallaby.testFramework.configure(jestConfig);
     },
 

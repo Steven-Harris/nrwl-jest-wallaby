@@ -5843,6 +5843,11 @@ neo-async@^2.5.0, neo-async@^2.6.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
   integrity sha512-MFh0d/Wa7vkKO3Y3LlacqAEeHK0mckVqzDieUKTT+KGxi+zIpeVsFxymkIiRpbpDziHc290Xr9A1O4Om7otoRA==
 
+ngx-wallaby-jest@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/ngx-wallaby-jest/-/ngx-wallaby-jest-0.0.2.tgz#16f81241d533f578c0018f592f83b72c70b79518"
+  integrity sha512-BnzfwuasCIlBF9cMCtsHnpKAm9g8xwNCxqczfP0qcNMae67Xq/XV3CXWNcrFCz3XPWulZbTGIZrLhbeYZszTdQ==
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
